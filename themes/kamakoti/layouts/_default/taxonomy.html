@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="taxonomy-page">
+  <!-- Page Header -->
+  <section class="page-header py-8 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold">{{ .Title }}</h1>
+      <p class="mt-2 text-gray-600">{{ .Data.Plural | humanize }}</p>
+    </div>
+  </section>
+
+  <!-- Content List -->
+  <section class="content-list py-12">
+    <div class="container mx-auto px-4">
+      {{ if .Pages }}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {{ range .Pages }}
+            <article class="card card-hover">
+              {{ with .Params.featured_image }}
+                <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-full h-48 object-cover">
+              {{ end }}
+
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">
+                  <a href="{{ .RelPermalink }}" class="text-gray-900 hover:text-primary-600">
+                    {{ .Title }}
+                  </a>
+                </h3>
+
+                {{ with .Params.summary }}
+                  <p class="text-gray-600 mb-4">{{ . }}</p>
+                {{ else }}
+                  <p class="text-gray-600 mb-4">{{ .Summary }}</p>
+                {{ end }}
+
+                <a href="{{ .RelPermalink }}" class="text-primary-600 hover:text-primary-700 font-medium">
+                  Read More →
+                </a>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      {{ else }}
+        <p class="text-gray-600 text-center">No content available in this category.</p>
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}

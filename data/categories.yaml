@@ -1,0 +1,25 @@
+categories:
+  - title: "Mutt Schools"
+    slug: "mutt-schools"
+    icon: "fa-school"
+    description: "Educational institutions run by the Mutt providing quality education rooted in traditional values"
+
+  - title: "Veda Patashalas"
+    slug: "veda-patashalas"
+    icon: "fa-book-open"
+    description: "Traditional Vedic learning centers preserving ancient knowledge and scriptures"
+
+  - title: "Social Work"
+    slug: "social-work"
+    icon: "fa-hands-helping"
+    description: "Community service initiatives including annadhanam, healthcare, and disaster relief"
+
+  - title: "Mutt Branches"
+    slug: "mutt-branches"
+    icon: "fa-sitemap"
+    description: "Branch locations across India serving devotees and spreading spiritual teachings"
+
+  - title: "Other Services"
+    slug: "other-services"
+    icon: "fa-concierge-bell"
+    description: "Additional services and facilities available for devotees and visitors"

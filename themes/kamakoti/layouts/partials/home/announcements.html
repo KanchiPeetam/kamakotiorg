@@ -1,0 +1,54 @@
+{{ $announcements := where .Site.RegularPages "Section" "announcements" }}
+{{ $announcements = $announcements | first 3 }}
+
+<div class="bg-white rounded-lg shadow-md p-6 h-full flex flex-col">
+  <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center">
+      <i class="fas fa-bullhorn text-primary-600 text-2xl mr-3"></i>
+      <h3 class="text-xl font-bold">Announcements</h3>
+    </div>
+    <a href="/announcements/" class="text-sm text-primary-600 hover:text-primary-700 font-medium">
+      View All →
+    </a>
+  </div>
+
+  {{ if $announcements }}
+    <div class="flex-grow space-y-4">
+      {{ range $index, $announcement := $announcements }}
+        <article class="pb-4 {{ if ne $index (sub (len $announcements) 1) }}border-b border-gray-200{{ end }}">
+          <div class="flex items-start justify-between mb-2">
+            <h4 class="font-semibold text-gray-900 flex-grow pr-2">
+              <a href="{{ .RelPermalink }}" class="hover:text-primary-600 transition-colors">
+                {{ .Title }}
+              </a>
+            </h4>
+            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800 flex-shrink-0">
+              New
+            </span>
+          </div>
+
+          <div class="flex items-center text-xs text-gray-500 mb-2">
+            <i class="far fa-calendar mr-1"></i>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">
+              {{ .Date.Format "Jan 2, 2006" }}
+            </time>
+          </div>
+
+          {{ with .Params.summary }}
+            <p class="text-sm text-gray-600 line-clamp-2">{{ . }}</p>
+          {{ else }}
+            <p class="text-sm text-gray-600 line-clamp-2">{{ .Summary }}</p>
+          {{ end }}
+
+          <a href="{{ .RelPermalink }}" class="text-sm text-primary-600 hover:text-primary-700 font-medium mt-2 inline-block">
+            Read more →
+          </a>
+        </article>
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="flex-grow flex items-center justify-center">
+      <p class="text-gray-500 text-sm text-center">No announcements at this time.</p>
+    </div>
+  {{ end }}
+</div>

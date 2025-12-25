@@ -1,0 +1,46 @@
+<!-- Open Graph Meta Tags -->
+
+<!-- Basic OG Tags -->
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:url" content="{{ .Permalink }}">
+
+<!-- Description -->
+{{ $description := .Site.Params.description }}
+{{ if .Params.description }}
+  {{ $description = .Params.description }}
+{{ else if .Summary }}
+  {{ $description = .Summary }}
+{{ end }}
+<meta property="og:description" content="{{ $description }}">
+
+<!-- Type -->
+{{ if .IsPage }}
+  <meta property="og:type" content="article">
+  {{ with .Params.Date }}
+    <meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+  {{ end }}
+  {{ with .Lastmod }}
+    <meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+  {{ end }}
+  {{ with .Params.tags }}
+    {{ range first 5 . }}
+      <meta property="article:tag" content="{{ . }}">
+    {{ end }}
+  {{ end }}
+{{ else }}
+  <meta property="og:type" content="website">
+{{ end }}
+
+<!-- Image -->
+{{ $ogImage := "/images/og-default.svg" }}
+{{ with .Params.featured_image }}
+  {{ $ogImage = . }}
+{{ end }}
+<meta property="og:image" content="{{ $ogImage | absURL }}">
+<meta property="og:image:alt" content="{{ .Title }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Locale -->
+<meta property="og:locale" content="{{ .Site.Language.Lang }}">

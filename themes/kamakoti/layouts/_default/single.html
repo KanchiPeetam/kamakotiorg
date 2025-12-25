@@ -1,0 +1,96 @@
+{{ define "main" }}
+<article class="single-content">
+  <!-- Article Header -->
+  <header class="article-header py-8 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Breadcrumb -->
+      <div class="mb-4">
+        {{ partial "breadcrumb.html" . }}
+      </div>
+
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ .Title }}</h1>
+
+      <div class="meta text-gray-600 flex flex-wrap items-center gap-4 text-sm">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">
+          <i class="far fa-calendar mr-1"></i>
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+        {{ with .Params.location }}
+          <span><i class="fas fa-map-marker-alt mr-1"></i>{{ . }}</span>
+        {{ end }}
+        {{ with .Params.established }}
+          <span><i class="fas fa-history mr-1"></i>Established {{ . }}</span>
+        {{ end }}
+      </div>
+    </div>
+  </header>
+
+  <!-- Featured Image -->
+  {{ with .Params.featured_image }}
+    <div class="featured-image my-8">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-full rounded-lg shadow-lg">
+      </div>
+    </div>
+  {{ end }}
+
+  <!-- Article Content with Sidebar -->
+  <div class="article-body py-6">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <!-- Main Content -->
+        <div class="lg:col-span-2">
+          <div class="prose max-w-none">
+            {{ .Content }}
+          </div>
+
+          <!-- Contact Information -->
+          {{ with .Params.contact }}
+            <div class="contact-info mt-6 p-5 bg-gray-50 rounded-lg border border-gray-200">
+              <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <i class="fas fa-phone-alt text-primary-600 mr-2"></i>
+                Contact Information
+              </h3>
+              <div class="space-y-2">
+                {{ with .phone }}
+                  <div class="flex items-center text-gray-700">
+                    <i class="fas fa-phone text-primary-600 w-5 mr-3"></i>
+                    <a href="tel:{{ . }}" class="hover:text-primary-600 transition-colors">{{ . }}</a>
+                  </div>
+                {{ end }}
+                {{ with .email }}
+                  <div class="flex items-center text-gray-700">
+                    <i class="fas fa-envelope text-primary-600 w-5 mr-3"></i>
+                    <a href="mailto:{{ . }}" class="hover:text-primary-600 transition-colors">{{ . }}</a>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          {{ end }}
+
+          <!-- Social Sharing -->
+          <div class="social-sharing mt-6 pt-6 border-t border-gray-200">
+            {{ partial "social-share.html" . }}
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-1">
+          {{ partial "sidebar/sidebar.html" . }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Content -->
+  {{ if .Site.RegularPages.Related . }}
+    <div class="related-section py-8 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        {{ partial "related-content.html" . }}
+      </div>
+    </div>
+  {{ end }}
+</article>
+{{ end }}

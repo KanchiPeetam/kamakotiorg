@@ -1,0 +1,19 @@
+{{ $featured := where .Site.RegularPages "Params.tags" "intersect" (slice "featured") }}
+{{ $featured = $featured | first 7 }}
+
+{{ if $featured }}
+<div class="swiper featured-carousel">
+  <div class="swiper-wrapper">
+    {{ range $featured }}
+      {{ partial "home/article-card.html" . }}
+    {{ end }}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+{{ else }}
+<div class="text-center py-12">
+  <p class="text-gray-600">No featured articles available yet.</p>
+</div>
+{{ end }}

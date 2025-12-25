@@ -1,0 +1,46 @@
+# Photo Gallery Configuration
+# Simple album-based organization - just add images to folders!
+
+albums:
+  - title: "Temple Events"
+    description: "Special ceremonies and celebrations at the temple"
+    slug: "temple-events"
+    thumbnail: "/images/gallery/temple-events/cover.jpg"
+    path: "static/images/gallery/temple-events"
+
+  - title: "Vedic Education"
+    description: "Students learning Vedas and scriptures"
+    slug: "vedic-education"
+    thumbnail: "/images/gallery/vedic-education/cover.jpg"
+    path: "static/images/gallery/vedic-education"
+
+  - title: "Social Service"
+    description: "Community service and charitable activities"
+    slug: "social-service"
+    thumbnail: "/images/gallery/social-service/cover.jpg"
+    path: "static/images/gallery/social-service"
+
+  - title: "Temple Architecture"
+    description: "Beautiful architecture and sacred spaces"
+    slug: "temple-architecture"
+    thumbnail: "/images/gallery/architecture/cover.jpg"
+    path: "static/images/gallery/architecture"
+
+# Gallery Settings
+settings:
+  # Images per row on different screen sizes
+  columns:
+    mobile: 1
+    tablet: 2
+    desktop: 3
+    wide: 4
+
+  # Image aspect ratio handling
+  aspect_ratio: "auto" # Options: auto, square, landscape, portrait
+
+  # Lightbox settings
+  lightbox:
+    enabled: true
+    show_caption: true
+    show_counter: true
+    keyboard_navigation: true

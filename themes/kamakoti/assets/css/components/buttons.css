@@ -1,0 +1,80 @@
+/* Button Components */
+
+/* Base button styles */
+.btn-base {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+/* Primary button */
+.btn-primary {
+  @apply btn-base bg-primary-600 text-white;
+  @apply hover:bg-primary-700 active:bg-primary-800;
+  @apply focus:ring-primary-500;
+  @apply shadow-md hover:shadow-lg;
+}
+
+/* Secondary button */
+.btn-secondary {
+  @apply btn-base bg-gray-200 text-gray-800;
+  @apply hover:bg-gray-300 active:bg-gray-400;
+  @apply focus:ring-gray-500;
+}
+
+/* Outline button */
+.btn-outline {
+  @apply btn-base bg-transparent border-2 border-primary-600 text-primary-600;
+  @apply hover:bg-primary-50 active:bg-primary-100;
+  @apply focus:ring-primary-500;
+}
+
+/* Ghost button */
+.btn-ghost {
+  @apply btn-base bg-transparent text-primary-600;
+  @apply hover:bg-primary-50 active:bg-primary-100;
+  @apply focus:ring-primary-500;
+}
+
+/* Danger/Delete button */
+.btn-danger {
+  @apply btn-base bg-red-600 text-white;
+  @apply hover:bg-red-700 active:bg-red-800;
+  @apply focus:ring-red-500;
+  @apply shadow-md hover:shadow-lg;
+}
+
+/* Small button */
+.btn-sm {
+  @apply px-4 py-2 text-sm;
+}
+
+/* Large button */
+.btn-lg {
+  @apply px-8 py-4 text-lg;
+}
+
+/* Full width button */
+.btn-block {
+  @apply w-full;
+}
+
+/* Disabled button */
+.btn-base:disabled {
+  @apply opacity-50 cursor-not-allowed;
+  @apply hover:bg-current active:bg-current;
+}
+
+/* Icon button (circular) */
+.btn-icon {
+  @apply inline-flex items-center justify-center rounded-full;
+  @apply w-10 h-10 transition-all duration-200;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500;
+}
+
+.btn-icon-sm {
+  @apply w-8 h-8;
+}
+
+.btn-icon-lg {
+  @apply w-12 h-12;
+}

@@ -1,0 +1,23 @@
+<!-- Schema.org Organization Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ReligiousOrganization",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "logo": "{{ "images/logo.svg" | absURL }}",
+  "description": "{{ .Site.Params.description }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kanchipuram",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    {{ with .Site.Params.social.facebook }}"{{ . }}",{{ end }}
+    {{ with .Site.Params.social.twitter }}"https://twitter.com/{{ . }}",{{ end }}
+    {{ with .Site.Params.social.youtube }}"{{ . }}",{{ end }}
+    {{ with .Site.Params.social.instagram }}"{{ . }}"{{ end }}
+  ]
+}
+</script>

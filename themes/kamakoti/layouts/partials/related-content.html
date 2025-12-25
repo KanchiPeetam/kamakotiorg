@@ -1,0 +1,37 @@
+{{ $related := .Site.RegularPages.Related . | first 3 }}
+
+{{ if $related }}
+<div class="related-content">
+  <h3 class="text-2xl font-bold text-gray-900 mb-6">Related Content</h3>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {{ range $related }}
+      <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+        {{ with .Params.featured_image }}
+          <div class="related-image relative overflow-hidden h-40">
+            <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-full h-full object-cover">
+          </div>
+        {{ end }}
+
+        <div class="p-4">
+          <h4 class="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+            <a href="{{ .RelPermalink }}" class="hover:text-primary-600 transition-colors">
+              {{ .Title }}
+            </a>
+          </h4>
+
+          {{ with .Params.summary }}
+            <p class="text-sm text-gray-600 mb-3 line-clamp-2">{{ . }}</p>
+          {{ else }}
+            <p class="text-sm text-gray-600 mb-3 line-clamp-2">{{ .Summary }}</p>
+          {{ end }}
+
+          <a href="{{ .RelPermalink }}" class="text-primary-600 hover:text-primary-700 font-medium text-sm">
+            Read More →
+          </a>
+        </div>
+      </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

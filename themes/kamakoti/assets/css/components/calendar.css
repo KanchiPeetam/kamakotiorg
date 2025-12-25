@@ -1,0 +1,81 @@
+/* FullCalendar Styling */
+.calendar-container {
+  @apply bg-white rounded-lg shadow-md p-6;
+}
+
+#calendar {
+  @apply w-full;
+}
+
+/* Customize FullCalendar theme to match site design */
+.fc {
+  @apply font-sans;
+}
+
+.fc .fc-toolbar-title {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.fc .fc-button-primary {
+  @apply bg-primary-600 border-primary-600 text-white;
+}
+
+.fc .fc-button-primary:hover:not(:disabled) {
+  @apply bg-primary-700 border-primary-700;
+}
+
+.fc .fc-button-primary:disabled {
+  @apply bg-gray-300 border-gray-300 cursor-not-allowed;
+}
+
+.fc .fc-button-active {
+  @apply bg-primary-700 border-primary-700;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  @apply border-gray-200;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+  @apply border-gray-200;
+}
+
+.fc .fc-col-header-cell {
+  @apply bg-gray-50 font-semibold text-gray-700;
+}
+
+.fc .fc-daygrid-day-number {
+  @apply text-gray-900 font-medium;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  @apply bg-primary-50;
+}
+
+.fc .fc-event {
+  @apply cursor-pointer transition-opacity duration-200;
+}
+
+.fc .fc-event:hover {
+  @apply opacity-80;
+}
+
+.fc .fc-daygrid-event {
+  @apply rounded px-1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .fc .fc-toolbar {
+    @apply flex-col gap-2;
+  }
+
+  .fc .fc-toolbar-chunk {
+    @apply mb-2;
+  }
+
+  .calendar-container {
+    @apply p-4;
+  }
+}

@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Component Imports */
+@import './components/carousel.css';
+@import './components/calendar.css';
+@import './components/buttons.css';
+@import './components/sidebar.css';
+@import './components/gallery.css';
+
+/* Base Imports */
+@import './base/typography.css';
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-base text-gray-900 leading-relaxed antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-snug;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h4 {
+    @apply text-lg md:text-xl;
+  }
+
+  h5 {
+    @apply text-base md:text-lg;
+  }
+
+  h6 {
+    @apply text-base;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  .btn {
+    @apply inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-4 focus:ring-primary-200;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden;
+  }
+
+  .card-hover {
+    @apply hover:shadow-xl transition-shadow duration-300;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .section-padding {
+    @apply py-8 md:py-12;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4;
+  }
+
+  /* Scroll to top button */
+  .scroll-to-top {
+    @apply fixed bottom-6 right-6 w-12 h-12 bg-primary-600 text-white rounded-full shadow-lg;
+    @apply flex items-center justify-center transition-all duration-300;
+    @apply hover:bg-primary-700 focus:outline-none focus:ring-4 focus:ring-primary-200;
+    @apply z-50 cursor-pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+  }
+
+  .scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .scroll-to-top.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+  }
+
+  /* Lazy loading images */
+  img.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  img.loaded {
+    opacity: 1;
+  }
+}

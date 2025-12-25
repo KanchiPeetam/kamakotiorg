@@ -1,0 +1,20 @@
+<!-- FullCalendar Container -->
+<div class="calendar-container">
+  <div id="calendar"></div>
+</div>
+
+<!-- Events Data as JSON -->
+<script id="events-data" type="application/json">
+[
+  {{ $events := where .Site.RegularPages "Section" "events" }}
+  {{ range $index, $event := $events }}
+    {{ if $event.Params.event_date }}
+    {
+      "title": {{ $event.Title | jsonify }},
+      "start": {{ $event.Params.event_date | jsonify }},
+      "url": {{ $event.RelPermalink | jsonify }}
+    }{{ if ne $index (sub (len $events) 1) }},{{ end }}
+    {{ end }}
+  {{ end }}
+]
+</script>

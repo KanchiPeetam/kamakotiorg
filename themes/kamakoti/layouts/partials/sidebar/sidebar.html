@@ -1,0 +1,26 @@
+<!-- Sidebar -->
+{{ if .Site.Data.sidebar.enabled }}
+<aside class="sidebar">
+  <div class="space-y-6">
+    <!-- Newsletter Card -->
+    {{ if .Site.Data.sidebar.newsletter.enabled }}
+      {{ partial "sidebar/newsletter-card.html" . }}
+    {{ end }}
+
+    <!-- Magazine Card -->
+    {{ if .Site.Data.sidebar.magazine.enabled }}
+      {{ partial "sidebar/magazine-card.html" . }}
+    {{ end }}
+
+    <!-- Custom Links Card -->
+    {{ if .Site.Data.sidebar.custom_links.enabled }}
+      {{ partial "sidebar/links-card.html" . }}
+    {{ end }}
+
+    <!-- Social Media Card -->
+    {{ if .Site.Data.sidebar.social.enabled }}
+      {{ partial "sidebar/social-card.html" . }}
+    {{ end }}
+  </div>
+</aside>
+{{ end }}

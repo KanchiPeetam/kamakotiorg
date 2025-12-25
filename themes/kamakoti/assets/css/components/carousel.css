@@ -1,0 +1,67 @@
+/* Swiper.js Carousel Styles */
+.featured-carousel {
+  @apply w-full relative pb-12;
+}
+
+.featured-carousel .swiper-wrapper {
+  @apply pb-2;
+  align-items: stretch;
+}
+
+.featured-carousel .swiper-slide {
+  @apply h-auto;
+  display: flex;
+}
+
+.featured-carousel .swiper-slide .article-card {
+  width: 100%;
+}
+
+.featured-carousel .article-card {
+  @apply transition-shadow duration-300;
+}
+
+.featured-carousel .article-card:hover {
+  @apply shadow-xl;
+}
+
+/* Navigation Buttons */
+.featured-carousel .swiper-button-next,
+.featured-carousel .swiper-button-prev {
+  @apply text-primary-600;
+}
+
+.featured-carousel .swiper-button-next:after,
+.featured-carousel .swiper-button-prev:after {
+  @apply text-3xl font-bold;
+}
+
+/* Pagination */
+.featured-carousel .swiper-pagination-bullet {
+  @apply bg-gray-400;
+}
+
+.featured-carousel .swiper-pagination-bullet-active {
+  @apply bg-primary-600;
+}
+
+/* Article Card Specific Styles */
+.article-card .article-image {
+  @apply relative overflow-hidden;
+}
+
+.article-card .article-image img {
+  @apply transition-transform duration-300;
+}
+
+.article-card:hover .article-image img {
+  @apply scale-105;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .featured-carousel .swiper-button-next,
+  .featured-carousel .swiper-button-prev {
+    @apply hidden;
+  }
+}

@@ -1,0 +1,79 @@
+{{ define "main" }}
+<div class="events-page">
+  <!-- Page Header -->
+  <section class="page-header bg-gray-50 py-8">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-gray-900 mb-2">{{ .Title }}</h1>
+      {{ with .Description }}
+        <p class="text-gray-600 text-lg">{{ . }}</p>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- Calendar Section -->
+  <section class="calendar-section section-padding">
+    <div class="container mx-auto px-4">
+      {{ partial "events/calendar.html" . }}
+    </div>
+  </section>
+
+  <!-- Upcoming Events List -->
+  <section class="events-list section-padding bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Upcoming Events</h2>
+
+      {{ $today := now }}
+      {{ $upcomingEvents := where .Pages "Params.event_date" "ge" $today }}
+
+      {{ if $upcomingEvents }}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {{ range $upcomingEvents }}
+            <article class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow duration-300">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                <a href="{{ .RelPermalink }}" class="hover:text-primary-600 transition-colors">
+                  {{ .Title }}
+                </a>
+              </h3>
+
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-sm text-gray-600">
+                  <i class="far fa-calendar text-primary-600 w-5"></i>
+                  <time datetime="{{ .Params.event_date }}" class="ml-2">
+                    {{ dateFormat "Monday, January 2, 2006" .Params.event_date }}
+                  </time>
+                </div>
+
+                {{ with .Params.event_time }}
+                  <div class="flex items-center text-sm text-gray-600">
+                    <i class="far fa-clock text-primary-600 w-5"></i>
+                    <span class="ml-2">{{ . }}</span>
+                  </div>
+                {{ end }}
+
+                {{ with .Params.location }}
+                  <div class="flex items-center text-sm text-gray-600">
+                    <i class="fas fa-map-marker-alt text-primary-600 w-5"></i>
+                    <span class="ml-2">{{ . }}</span>
+                  </div>
+                {{ end }}
+              </div>
+
+              {{ with .Params.summary }}
+                <p class="text-gray-600 text-sm mb-4">{{ . }}</p>
+              {{ end }}
+
+              <a href="{{ .RelPermalink }}" class="text-primary-600 hover:text-primary-700 font-medium text-sm">
+                Read More →
+              </a>
+            </article>
+          {{ end }}
+        </div>
+      {{ else }}
+        <div class="text-center py-12">
+          <p class="text-gray-500">No upcoming events at this time.</p>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}

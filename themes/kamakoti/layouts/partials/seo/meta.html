@@ -1,0 +1,34 @@
+<!-- SEO Meta Tags -->
+
+<!-- Title -->
+<title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }} - {{ .Site.Params.description }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}{{ end }}</title>
+
+<!-- Meta Description -->
+{{ $description := .Site.Params.description }}
+{{ if .Params.description }}
+  {{ $description = .Params.description }}
+{{ else if .Summary }}
+  {{ $description = .Summary }}
+{{ end }}
+<meta name="description" content="{{ $description }}">
+
+<!-- Keywords -->
+{{ with .Params.tags }}
+  <meta name="keywords" content="{{ delimit . ", " }}">
+{{ end }}
+
+<!-- Author -->
+<meta name="author" content="{{ .Site.Title }}">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Robots -->
+{{ if or (eq hugo.Environment "development") .Params.noindex }}
+  <meta name="robots" content="noindex, nofollow">
+{{ else }}
+  <meta name="robots" content="index, follow">
+{{ end }}
+
+<!-- Language -->
+<meta name="language" content="{{ .Site.Language.Lang }}">

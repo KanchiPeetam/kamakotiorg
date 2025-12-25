@@ -1,0 +1,44 @@
+{{ define "main" }}
+<div class="list-page">
+  <!-- Page Header -->
+  <section class="page-header bg-gray-50 py-6">
+    <div class="container mx-auto px-4">
+      <!-- Breadcrumb -->
+      <div class="mb-4">
+        {{ partial "breadcrumb.html" . }}
+      </div>
+
+      <!-- Title and Description -->
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ .Title }}</h1>
+      {{ with .Description }}
+        <p class="text-lg text-gray-600 max-w-3xl">{{ . }}</p>
+      {{ end }}
+
+      <!-- Count -->
+      {{ if .Pages }}
+        <p class="mt-4 text-sm text-gray-500">
+          {{ len .Pages }} {{ if eq (len .Pages) 1 }}item{{ else }}items{{ end }}
+        </p>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- Content Grid -->
+  <section class="content-grid section-padding">
+    <div class="container mx-auto px-4">
+      {{ if .Pages }}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {{ range .Pages }}
+            {{ partial "content/tile.html" . }}
+          {{ end }}
+        </div>
+      {{ else }}
+        <div class="text-center py-12">
+          <i class="fas fa-inbox text-6xl text-gray-300 mb-4"></i>
+          <p class="text-gray-500 text-lg">No content available in this section yet.</p>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}

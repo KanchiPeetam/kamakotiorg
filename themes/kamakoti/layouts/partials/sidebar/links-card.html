@@ -1,0 +1,25 @@
+<!-- Custom Links Card -->
+{{ with .Site.Data.sidebar.custom_links }}
+<div class="sidebar-card bg-white rounded-lg shadow-md p-6">
+  <div class="flex items-center mb-4">
+    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+      <i class="{{ .icon }} text-gray-600 text-lg"></i>
+    </div>
+    <h3 class="text-lg font-bold text-gray-900 ml-3">{{ .title }}</h3>
+  </div>
+
+  <ul class="space-y-3">
+    {{ range .links }}
+      <li>
+        <a href="{{ .url }}" class="flex items-center text-gray-700 hover:text-primary-600 transition-colors group">
+          <div class="w-8 h-8 bg-gray-100 group-hover:bg-primary-100 rounded-full flex items-center justify-center mr-3 transition-colors">
+            <i class="{{ .icon }} text-sm text-gray-600 group-hover:text-primary-600"></i>
+          </div>
+          <span class="text-sm font-medium">{{ .title }}</span>
+          <i class="fas fa-chevron-right text-xs ml-auto text-gray-400 group-hover:text-primary-600"></i>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

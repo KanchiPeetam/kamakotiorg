@@ -1,0 +1,94 @@
+/* Gallery Components */
+
+/* Gallery grid */
+.photo-grid {
+  @apply grid gap-4;
+}
+
+/* Gallery item base styles */
+.gallery-item {
+  @apply relative overflow-hidden rounded-lg;
+  aspect-ratio: 4/3;
+  cursor: zoom-in;
+}
+
+/* Ensure images fill container */
+.gallery-item img {
+  @apply w-full h-full object-cover;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effects */
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay styles */
+.gallery-item .absolute {
+  transition: opacity 0.3s ease;
+}
+
+/* Album sections */
+.gallery-album {
+  @apply mb-12 last:mb-0;
+}
+
+.album-header {
+  @apply mb-6 pb-4 border-b border-gray-200;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 640px) {
+  .photo-grid {
+    @apply grid-cols-1;
+  }
+
+  .gallery-item {
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .photo-grid {
+    @apply grid-cols-2;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .photo-grid {
+    @apply grid-cols-3;
+  }
+}
+
+@media (min-width: 1280px) {
+  .photo-grid {
+    @apply grid-cols-4;
+  }
+}
+
+/* GLightbox custom theme overrides */
+.glightbox-clean .gslide-description {
+  @apply bg-gray-900/90 text-white;
+}
+
+.glightbox-clean .gdesc-inner {
+  @apply p-4;
+}
+
+/* Loading animation */
+.gallery-item.loading {
+  @apply bg-gray-200 animate-pulse;
+}
+
+/* Empty state */
+.gallery-empty {
+  @apply text-center py-12;
+}
+
+.gallery-empty i {
+  @apply text-6xl text-gray-300 mb-4;
+}
+
+.gallery-empty p {
+  @apply text-gray-500 text-lg;
+}

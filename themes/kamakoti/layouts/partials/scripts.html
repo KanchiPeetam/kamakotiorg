@@ -1,0 +1,47 @@
+<!-- Swiper.js - Only load on homepage -->
+{{ if .IsHome }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+  {{ $carouselJS := resources.Get "js/carousel.js" }}
+  {{ if $carouselJS }}
+    <script src="{{ $carouselJS.RelPermalink }}" defer></script>
+  {{ end }}
+{{ end }}
+
+<!-- FullCalendar.js - Only load on events pages -->
+{{ if eq .Section "events" }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js" defer></script>
+
+  {{ $calendarJS := resources.Get "js/calendar.js" }}
+  {{ if $calendarJS }}
+    <script src="{{ $calendarJS.RelPermalink }}" defer></script>
+  {{ end }}
+{{ end }}
+
+<!-- Share.js - Load on single pages -->
+{{ if .IsPage }}
+  {{ $shareJS := resources.Get "js/share.js" }}
+  {{ if $shareJS }}
+    <script src="{{ $shareJS.RelPermalink }}" defer></script>
+  {{ end }}
+{{ end }}
+
+<!-- GLightbox - Only load on gallery pages (Local files) -->
+{{ if eq .Section "gallery" }}
+  <link rel="stylesheet" href="{{ "css/vendor/glightbox.min.css" | relURL }}">
+  <script src="{{ "js/vendor/glightbox.min.js" | relURL }}"></script>
+
+  {{ $galleryJS := resources.Get "js/gallery.js" }}
+  {{ if $galleryJS }}
+    <script src="{{ $galleryJS.RelPermalink }}" defer></script>
+  {{ end }}
+{{ end }}
+
+<!-- Main JavaScript - Site-wide enhancements -->
+{{ $mainJS := resources.Get "js/main.js" }}
+{{ if $mainJS }}
+  {{ $mainJS = $mainJS | js.Build (dict "target" "es2017" "minify" false) }}
+  <script src="{{ $mainJS.RelPermalink }}" defer></script>
+{{ end }}

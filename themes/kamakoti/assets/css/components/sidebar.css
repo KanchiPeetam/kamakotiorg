@@ -1,0 +1,70 @@
+/* Sidebar Components */
+
+/* Sidebar container - sticky on desktop */
+.sidebar {
+  @apply w-full;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    position: sticky;
+    top: 6rem; /* Account for sticky header */
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+  }
+
+  /* Custom scrollbar for sidebar */
+  .sidebar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background: #d97706;
+    border-radius: 4px;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background: #b45309;
+  }
+}
+
+/* Sidebar card base styles */
+.sidebar-card {
+  @apply transition-all duration-200;
+}
+
+.sidebar-card:hover {
+  @apply shadow-lg;
+  transform: translateY(-2px);
+}
+
+/* Newsletter card specific styles */
+.sidebar-card .btn {
+  @apply text-sm py-2 px-4;
+}
+
+/* Magazine card gradient enhancement */
+.sidebar-card.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, #fff7ed, #ffedd5);
+}
+
+/* Links card hover effects */
+.sidebar-card ul li a {
+  @apply rounded-lg p-2 -mx-2;
+}
+
+.sidebar-card ul li a:hover {
+  @apply bg-gray-50;
+}
+
+/* Responsive spacing */
+@media (max-width: 1023px) {
+  .sidebar {
+    @apply mt-8;
+  }
+}

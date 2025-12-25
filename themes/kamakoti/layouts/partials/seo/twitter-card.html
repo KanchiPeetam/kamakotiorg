@@ -1,0 +1,28 @@
+<!-- Twitter Card Meta Tags -->
+
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Title -->
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+
+<!-- Description -->
+{{ $description := .Site.Params.description }}
+{{ if .Params.description }}
+  {{ $description = .Params.description }}
+{{ else if .Summary }}
+  {{ $description = .Summary }}
+{{ end }}
+<meta name="twitter:description" content="{{ $description }}">
+
+<!-- Image -->
+{{ $twitterImage := "/images/og-default.svg" }}
+{{ with .Params.featured_image }}
+  {{ $twitterImage = . }}
+{{ end }}
+<meta name="twitter:image" content="{{ $twitterImage | absURL }}">
+<meta name="twitter:image:alt" content="{{ .Title }}">
+
+<!-- Site Twitter Handle (if configured) -->
+{{ with .Site.Params.social.twitter }}
+  <meta name="twitter:site" content="@{{ . }}">
+{{ end }}

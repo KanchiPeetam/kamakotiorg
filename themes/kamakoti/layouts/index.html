@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div class="homepage">
+  <!-- Featured Carousel Section -->
+  <section class="featured-section bg-gray-50 pb-12 md:pb-16">
+    <div class="w-full px-4 md:px-6 lg:px-8">
+      {{ partial "home/carousel.html" . }}
+    </div>
+  </section>
+
+  <!-- 3-Column Section with Sidebar -->
+  <section class="three-column section-padding">
+    <div class="w-full px-4 md:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+        <!-- Main 3-Column Content -->
+        <div class="lg:col-span-3 h-full">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 h-full">
+            <!-- Yatra Details -->
+            {{ partial "home/yatra-details.html" . }}
+
+            <!-- Upcoming Events -->
+            {{ partial "home/upcoming-events.html" . }}
+
+            <!-- Announcements -->
+            {{ partial "home/announcements.html" . }}
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:col-span-1 h-full">
+          {{ partial "sidebar/sidebar.html" . }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Grid -->
+  <section class="categories-grid section-padding bg-gray-50">
+    <div class="w-full px-4 md:px-6 lg:px-8">
+      {{ partial "home/categories-grid.html" . }}
+    </div>
+  </section>
+</div>
+{{ end }}

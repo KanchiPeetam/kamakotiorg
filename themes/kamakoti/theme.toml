@@ -1,0 +1,12 @@
+name = "Kamakoti"
+license = "MIT"
+licenselink = "https://github.com/kamakoti/kamakoti-theme/blob/main/LICENSE"
+description = "A clean, professional Hugo theme for Sri Kanchi Kamakoti Peetam"
+homepage = "https://kamakoti.org/"
+tags = ["religious", "nonprofit", "responsive", "tailwind", "clean"]
+features = ["responsive", "customizable", "fast", "accessible"]
+min_version = "0.120.0"
+
+[author]
+  name = "Sri Kanchi Kamakoti Peetam"
+  homepage = "https://kamakoti.org/"

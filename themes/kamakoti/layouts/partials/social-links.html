@@ -1,0 +1,43 @@
+<nav class="social-links" aria-label="Social Media Links">
+  <div class="flex items-center space-x-4">
+    {{ with .Site.Params.social.facebook }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+         class="text-gray-600 hover:text-blue-600 transition-colors"
+         aria-label="Facebook">
+        <i class="fab fa-facebook-f text-xl"></i>
+      </a>
+    {{ end }}
+
+    {{ with .Site.Params.social.twitter }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+         class="text-gray-600 hover:text-sky-500 transition-colors"
+         aria-label="Twitter">
+        <i class="fab fa-twitter text-xl"></i>
+      </a>
+    {{ end }}
+
+    {{ with .Site.Params.social.youtube }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+         class="text-gray-600 hover:text-red-600 transition-colors"
+         aria-label="YouTube">
+        <i class="fab fa-youtube text-xl"></i>
+      </a>
+    {{ end }}
+
+    {{ with .Site.Params.social.instagram }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+         class="text-gray-600 hover:text-pink-600 transition-colors"
+         aria-label="Instagram">
+        <i class="fab fa-instagram text-xl"></i>
+      </a>
+    {{ end }}
+
+    {{ with .Site.Params.social.whatsapp }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
+         class="text-gray-600 hover:text-green-600 transition-colors"
+         aria-label="WhatsApp">
+        <i class="fab fa-whatsapp text-xl"></i>
+      </a>
+    {{ end }}
+  </div>
+</nav>

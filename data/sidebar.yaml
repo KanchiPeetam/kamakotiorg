@@ -1,0 +1,54 @@
+# Sidebar Configuration
+# Controls what appears in the sidebar on posts and pages
+
+# Enable/disable sidebar globally
+enabled: true
+
+# Newsletter subscription card
+newsletter:
+  enabled: true
+  title: "Subscribe to Newsletter"
+  description: "Get updates on events, announcements, and spiritual insights delivered to your inbox."
+  button_text: "Subscribe"
+  button_link: "#newsletter" # Link to newsletter form or external service
+  icon: "fa-envelope"
+
+# Magazine subscription card
+magazine:
+  enabled: true
+  title: "Kanchi Kamakoti Vani"
+  description: "Read our monthly magazine with spiritual teachings, articles, and updates from the Mutt."
+  button_text: "Subscribe Now"
+  button_link: "#magazine" # Link to magazine subscription page
+  icon: "fa-book-open"
+  # Optional: Add latest issue info
+  latest_issue:
+    enabled: true
+    title: "Latest Issue - December 2025"
+    link: "#latest-issue"
+
+# Custom links section
+custom_links:
+  enabled: true
+  title: "Quick Links"
+  icon: "fa-link"
+  links:
+    - title: "Daily Prayers"
+      url: "/prayers/"
+      icon: "fa-pray"
+    - title: "Upcoming Events"
+      url: "/events/"
+      icon: "fa-calendar"
+    - title: "Contact Us"
+      url: "/contact/"
+      icon: "fa-envelope"
+    - title: "Donate"
+      url: "/donate/"
+      icon: "fa-donate"
+
+# Social media card (optional)
+social:
+  enabled: false
+  title: "Follow Us"
+  description: "Stay connected with us on social media"
+  icon: "fa-share-alt"

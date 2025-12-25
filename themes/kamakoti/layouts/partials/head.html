@@ -1,0 +1,43 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO Meta Tags -->
+  {{ partial "seo/meta.html" . }}
+
+  <!-- Open Graph Tags -->
+  {{ partial "seo/opengraph.html" . }}
+
+  <!-- Twitter Card Tags -->
+  {{ partial "seo/twitter-card.html" . }}
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+  <link rel="alternate icon" href="{{ "favicon.ico" | relURL }}">
+
+  <!-- CSS -->
+  {{ $css := resources.Get "css/main.css" }}
+  {{ $css = $css | css.PostCSS }}
+  {{ if hugo.IsProduction }}
+    {{ $css = $css | minify | fingerprint }}
+  {{ end }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>
+
+  <!-- Font Awesome (Local) -->
+  <link rel="stylesheet" href="{{ "css/vendor/fontawesome.min.css" | relURL }}">
+
+  <!-- Preconnect for external images -->
+  {{ if eq .Section "gallery" }}
+    <link rel="preconnect" href="https://picsum.photos">
+  {{ end }}
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#d97706">
+
+  <!-- Schema.org Structured Data -->
+  {{ if .IsHome }}
+    {{ partial "seo/schema-organization.html" . }}
+  {{ end }}
+  {{ partial "seo/schema-article.html" . }}
+</head>

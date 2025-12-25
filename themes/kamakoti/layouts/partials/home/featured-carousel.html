@@ -1,0 +1,46 @@
+{{ $featured := where .Site.RegularPages "Params.tags" "intersect" (slice "featured") }}
+{{ $featured = $featured | first 7 }}
+
+{{ if $featured }}
+<div class="carousel-container">
+  <div class="carousel-viewport">
+    <div class="carousel-slides">
+      {{ range $index, $article := $featured }}
+        <div class="carousel-slide" id="slide-{{ $index }}">
+          <div class="slide-image-wrapper">
+            {{ with $article.Params.featured_image }}
+              <img src="{{ . | relURL }}" alt="{{ $article.Title }}" loading="lazy">
+            {{ else }}
+              <div class="slide-gradient slide-{{ add $index 1 }}"></div>
+            {{ end }}
+            <div class="slide-overlay">
+              <div class="slide-content">
+                <h2 class="slide-title">
+                  <a href="{{ $article.RelPermalink }}">{{ $article.Title }}</a>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button class="carousel-nav carousel-prev" aria-label="Previous slide">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="carousel-nav carousel-next" aria-label="Next slide">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+  <!-- Pagination Dots -->
+  <div class="carousel-pagination">
+    {{ range $index, $article := $featured }}
+      <button class="carousel-dot {{ if eq $index 0 }}active{{ end }}"
+              data-slide="{{ $index }}"
+              aria-label="Go to slide {{ add $index 1 }}"></button>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,35 @@
+baseURL = "https://kamakoti.org/"
+title = "Sri Kanchi Kamakoti Peetam"
+theme = "kamakoti"
+languageCode = "en-us"
+enableRobotsTXT = true
+
+[params]
+  description = "Sri Kanchi Kamakoti Peetam - Ancient Hindu religious institution dedicated to spiritual guidance, education, and social service"
+
+  [params.social]
+    facebook = "https://facebook.com/kamakoti"
+    twitter = "https://twitter.com/kamakoti"
+    youtube = "https://youtube.com/kamakoti"
+    instagram = "https://instagram.com/kamakoti"
+    whatsapp = "https://whatsapp.com/channel/kamakoti"
+
+  [params.contact]
+    address = "1, Salai Street, Kanchipuram - 631 502, Tamil Nadu, India"
+    phone = "+91-44-27222115"
+    email = "kanchimutt@gmail.com"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[build]
+  writeStats = true  # Required for Tailwind CSS purging
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
