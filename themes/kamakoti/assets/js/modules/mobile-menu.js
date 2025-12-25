@@ -8,8 +8,11 @@ export default function initMobileMenu() {
   const closeIcon = document.getElementById('close-icon');
 
   if (!menuButton || !mobileMenu || !menuIcon || !closeIcon) {
+    console.error('Mobile menu elements not found:', { menuButton, mobileMenu, menuIcon, closeIcon });
     return;
   }
+
+  console.log('Mobile menu initialized successfully');
 
   // Toggle mobile menu
   menuButton.addEventListener('click', () => {
