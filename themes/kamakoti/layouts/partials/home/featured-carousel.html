@@ -9,7 +9,7 @@
         <div class="carousel-slide" id="slide-{{ $index }}">
           <div class="slide-image-wrapper">
             {{ with $article.Params.featured_image }}
-              <img src="{{ . | relURL }}" alt="{{ $article.Title }}" loading="lazy">
+              <img src="{{ . | absURL }}" alt="{{ $article.Title }}" loading="lazy">
             {{ else }}
               <div class="slide-gradient slide-{{ add $index 1 }}"></div>
             {{ end }}

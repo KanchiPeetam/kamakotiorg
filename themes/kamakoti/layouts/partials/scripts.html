@@ -30,8 +30,8 @@
 
 <!-- GLightbox - Only load on gallery pages (Local files) -->
 {{ if eq .Section "gallery" }}
-  <link rel="stylesheet" href="{{ "css/vendor/glightbox.min.css" | relURL }}">
-  <script src="{{ "js/vendor/glightbox.min.js" | relURL }}"></script>
+  <link rel="stylesheet" href="{{ "css/vendor/glightbox.min.css" | absURL }}">
+  <script src="{{ "js/vendor/glightbox.min.js" | absURL }}"></script>
 
   {{ $galleryJS := resources.Get "js/gallery.js" }}
   {{ if $galleryJS }}

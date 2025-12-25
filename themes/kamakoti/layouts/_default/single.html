@@ -29,7 +29,7 @@
   {{ with .Params.featured_image }}
     <div class="featured-image my-8">
       <div class="container mx-auto px-4 max-w-4xl">
-        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-full rounded-lg shadow-lg">
+        <img src="{{ . | absURL }}" alt="{{ $.Title }}" class="w-full rounded-lg shadow-lg">
       </div>
     </div>
   {{ end }}

@@ -19,7 +19,8 @@
       "Bash(do curl -L -o \"event-$i.jpg\" \"https://picsum.photos/800/600\")",
       "Bash(for i in 1 2 3)",
       "Bash(do curl -L -o \"education-$i.jpg\" \"https://picsum.photos/800/600\")",
-      "Bash(npm audit:*)"
+      "Bash(npm audit:*)",
+      "Bash(find:*)"
     ]
   }
 }

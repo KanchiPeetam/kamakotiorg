@@ -16,7 +16,7 @@
           {{ range .Pages }}
             <article class="card card-hover">
               {{ with .Params.featured_image }}
-                <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-full h-48 object-cover">
+                <img src="{{ . | absURL }}" alt="{{ $.Title }}" class="w-full h-48 object-cover">
               {{ end }}
 
               <div class="p-6">

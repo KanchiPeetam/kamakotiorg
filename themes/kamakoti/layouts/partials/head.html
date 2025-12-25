@@ -13,8 +13,8 @@
   {{ partial "seo/twitter-card.html" . }}
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
-  <link rel="alternate icon" href="{{ "favicon.ico" | relURL }}">
+  <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | absURL }}">
+  <link rel="alternate icon" href="{{ "favicon.ico" | absURL }}">
 
   <!-- CSS -->
   {{ $css := resources.Get "css/main.css" }}
@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>
 
   <!-- Font Awesome (Local) -->
-  <link rel="stylesheet" href="{{ "css/vendor/fontawesome.min.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/vendor/fontawesome.min.css" | absURL }}">
 
   <!-- Preconnect for external images -->
   {{ if eq .Section "gallery" }}

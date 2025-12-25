@@ -3,7 +3,7 @@
     {{ with .Params.featured_image }}
       <div class="article-image">
         <a href="{{ $.RelPermalink }}">
-          <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="w-full h-48 object-cover hover:opacity-90 transition-opacity">
+          <img src="{{ . | absURL }}" alt="{{ $.Title }}" class="w-full h-48 object-cover hover:opacity-90 transition-opacity">
         </a>
       </div>
     {{ end }}
