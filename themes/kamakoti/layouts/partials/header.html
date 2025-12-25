@@ -12,7 +12,7 @@
         </a>
       </div>
 
-      <!-- Navigation Links -->
+      <!-- Desktop Navigation Links -->
       <nav class="hidden md:flex items-center space-x-8">
         <a href="{{ "events" | relURL }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">
           <i class="far fa-calendar mr-2"></i>Events
@@ -25,10 +25,38 @@
         </a>
       </nav>
 
-      <!-- Social Media Links -->
-      <div class="flex-shrink-0">
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600" aria-label="Toggle mobile menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Social Media Links (Desktop) -->
+      <div class="hidden md:block flex-shrink-0">
         {{ partial "social-links.html" . }}
       </div>
     </div>
+
+    <!-- Mobile Navigation Menu -->
+    <nav id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-gray-200">
+      <div class="flex flex-col space-y-4 mt-4">
+        <a href="{{ "events" | relURL }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2">
+          <i class="far fa-calendar mr-2"></i>Events
+        </a>
+        <a href="{{ "announcements" | relURL }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2">
+          <i class="fas fa-bullhorn mr-2"></i>Announcements
+        </a>
+        <a href="{{ "gallery" | relURL }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors py-2">
+          <i class="far fa-images mr-2"></i>Gallery
+        </a>
+
+        <!-- Social Media Links (Mobile) -->
+        <div class="pt-4 border-t border-gray-200">
+          {{ partial "social-links.html" . }}
+        </div>
+      </div>
+    </nav>
   </div>
 </header>

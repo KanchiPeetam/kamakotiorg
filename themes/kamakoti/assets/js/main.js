@@ -3,10 +3,14 @@
 
 import initLazyLoad from './modules/lazyload.js';
 import { initSmoothScroll, initScrollToTop } from './modules/smooth-scroll.js';
+import initMobileMenu from './modules/mobile-menu.js';
 
 // Initialize all modules when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Kamakoti Theme - JavaScript Initialized');
+
+  // Initialize mobile menu
+  initMobileMenu();
 
   // Initialize lazy loading
   initLazyLoad();
