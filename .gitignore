@@ -6,7 +6,6 @@ resources/_gen/
 # Node
 node_modules/
 npm-debug.log*
-package-lock.json
 
 # OS
 .DS_Store
