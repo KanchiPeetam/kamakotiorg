@@ -39,8 +39,9 @@
             {{ $files := readDir $albumPath }}
             {{ range $files }}
               {{ if and (not .IsDir) (in (slice ".jpg" ".jpeg" ".png" ".gif" ".webp") (path.Ext .Name | lower)) }}
-                {{ $webPath := strings.TrimPrefix "static" $albumPath }}
+                {{ $webPath := strings.TrimPrefix "static/" $albumPath }}
                 {{ $imagePath := printf "%s/%s" $webPath .Name }}
+                {{ $imagePath = strings.TrimPrefix "/" $imagePath }}
 
                 <a href="{{ $imagePath | absURL }}"
                    class="gallery-item group relative overflow-hidden rounded-lg bg-gray-200 block"

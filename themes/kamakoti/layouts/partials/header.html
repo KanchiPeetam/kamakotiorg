@@ -14,13 +14,13 @@
 
       <!-- Navigation Links -->
       <nav class="hidden md:flex items-center space-x-8">
-        <a href="/events/" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+        <a href="{{ "events" | relURL }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">
           <i class="far fa-calendar mr-2"></i>Events
         </a>
-        <a href="/announcements/" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+        <a href="{{ "announcements" | relURL }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">
           <i class="fas fa-bullhorn mr-2"></i>Announcements
         </a>
-        <a href="/gallery/" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+        <a href="{{ "gallery" | relURL }}" class="text-gray-700 hover:text-primary-600 font-medium transition-colors">
           <i class="far fa-images mr-2"></i>Gallery
         </a>
       </nav>
