@@ -42,7 +42,7 @@
                 {{ $webPath := strings.TrimPrefix "static" $albumPath }}
                 {{ $imagePath := printf "%s/%s" $webPath .Name }}
 
-                <a href="{{ $imagePath }}"
+                <a href="{{ $imagePath | relURL }}"
                    class="gallery-item group relative overflow-hidden rounded-lg bg-gray-200 block"
                    data-gallery="gallery-{{ $albumSlug }}"
                    data-description="{{ .Name | replaceRE `\.[^.]+$` `` | humanize }}"
@@ -50,7 +50,7 @@
 
                   <!-- Image -->
                   <img
-                    src="{{ $imagePath }}"
+                    src="{{ $imagePath | relURL }}"
                     alt="{{ .Name | replaceRE `\.[^.]+$` `` | humanize }}"
                     class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110">
 
